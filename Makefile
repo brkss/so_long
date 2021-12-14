@@ -17,7 +17,7 @@ $(NAME)	: $(OBJECTS)
 			gcc $(SOURCES) -o $(NAME) $(FLAGS) $(LINKS)
 
 clean	:
-		rm *.o
+			rm -f $(OBJECTS)
 
 fclean	: 	clean
-
+			rm $(NAME)
