@@ -6,12 +6,36 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/14 03:08:08 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/14 22:16:21 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
 
+
+int main(int argc, char **argv)
+{
+	int	fd;
+
+	if(argc >= 2)
+	{
+		fd = open(argv[1], O_RDONLY);
+		if(fd < 3)
+		{
+			printf("invalid file ! \n");
+			exit(0);
+		}
+		read_map(fd);
+	}
+	else
+	{
+		printf("Missing Map ! \n");
+		exit(0);
+	}
+	return (0);
+}
+
+/*
 int main()
 {
 
@@ -51,4 +75,4 @@ int main()
 	// game loop
 	mlx_loop(mlx);
 	return (0);
-}
+}*/
