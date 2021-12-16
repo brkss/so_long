@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/14 22:16:43 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/15 23:11:10 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,20 @@ typedef struct img_s {
 	char	*path;
 	int		w;
 	int		h;
-} img_t;
+} t_img;
 
+typedef struct map_s {
+	int	**map;
+	int	h;
+	int	w;
+} t_map;
 
-int	read_map(int fd);
+typedef struct data_s {
+	t_map	*map;
+} t_data;
+
+int	read_map(int fd, t_data	*data);
+int	count_map_lines(int fd);
 //int	ft_strlen(char *s);
 
 #endif
