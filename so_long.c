@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/15 23:16:07 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/16 13:58:57 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ int main(int argc, char **argv)
 		data = (t_data	*)malloc(sizeof(t_data));
 		read_map(fd, data);
 		fd = open(argv[1], O_RDONLY);
-		printf("count maps lines => %d \n", count_map_lines(fd));
+		if(data->map)
+		{
+			printf("map h => %d \n", data->map->h);
+			printf("map w => %d \n", data->map->w);
+		}
+		fill_map(fd, data);
 	}
 	else
 	{

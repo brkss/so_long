@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/15 23:14:52 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/16 13:58:29 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,27 +76,34 @@ int	read_map(int fd, t_data *data)
 		free(line);
 		printf("Error\nInvalid Map ! \n");
 		exit(1);
-	}	
+	}
+	data->map = (t_map *)malloc(sizeof(t_map));
+	data->map->h = i;
+	data->map->w = initial_line_len;
 	free(line);
 	return (1);
 }
-
-int	count_map_lines(int fd)
+/*
+void	create_matrix(int h, int w)
 {
-	int		l;
-	char	*line;
+	char	*buff;
 
-	// init get next line static variable !
-	line = NULL;
-	l = 0;
-	while(line || l == 0)
+	buf = malloc(sizeof(char) * (h * w));
+
+}
+*/
+void	fill_map(int fd, t_data *data)
+{
+	char	*line;
+	int		i;
+
+	data->map->map = (char **)malloc(sizeof(char *) * data->map->h);
+	line = get_next_line(fd);
+	i = 0;
+	while(line)
 	{
-		if(line)
-			free(line);
+		data->map->map[i] = line;
 		line = get_next_line(fd);
-		l++;
+		i++;
 	}
-	if(line)
-		free(line);
-	return (l);
 }
