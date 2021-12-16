@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/16 13:58:29 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:16:34 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,7 @@ int	read_map(int fd, t_data *data)
 	free(line);
 	return (1);
 }
-/*
-void	create_matrix(int h, int w)
-{
-	char	*buff;
 
-	buf = malloc(sizeof(char) * (h * w));
-
-}
-*/
 void	fill_map(int fd, t_data *data)
 {
 	char	*line;
@@ -104,6 +96,25 @@ void	fill_map(int fd, t_data *data)
 	{
 		data->map->map[i] = line;
 		line = get_next_line(fd);
+		i++;
+	}
+}
+
+void	display_map(t_data *data)
+{
+
+	int	i;
+	int	j;
+
+	i = 0;
+	while(i < data->map->h)
+	{
+		j = 0;
+		while(j < data->map->w )
+		{
+			printf("%c", data->map->map[i][j]);
+			j++;
+		}
 		i++;
 	}
 }

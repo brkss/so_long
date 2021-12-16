@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/16 13:59:21 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:02:58 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct data_s {
 
 int		read_map(int fd, t_data	*data);
 void	fill_map(int fd, t_data *data);
+void	display_map(t_data *data);
 //int	ft_strlen(char *s);
 
 #endif
