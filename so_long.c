@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/16 14:18:17 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:39:08 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	t_data	*data;
 	void	*mlx;
 	void	*mlx_win;
-		if(argc >= 2)
+	if(argc >= 2)
 	{
 		fd = open(argv[1], O_RDONLY);
 		if(fd < 3)
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 			exit(0);
 		}	
 		data = (t_data	*)malloc(sizeof(t_data));
+		data->scale = 64;
 		read_map(fd, data);
 		fd = open(argv[1], O_RDONLY);
 		if(data->map)
@@ -37,7 +38,7 @@ int main(int argc, char **argv)
 		fill_map(fd, data);
 		display_map(data);
 		mlx = mlx_init();
-		mlx_win = mlx_new_window(mlx, 600, 600, "So Long !!!");
+		mlx_win = mlx_new_window(mlx, data->map->w * 64, data->map->h * 64, "So Long !!!");
 	
 		mlx_loop(mlx);
 	}

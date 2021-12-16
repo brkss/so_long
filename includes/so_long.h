@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/16 14:02:58 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/16 14:30:53 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ typedef struct map_s {
 	int	w;
 } t_map;
 
+
 typedef struct data_s {
 	t_map	*map;
+	int		scale;
 } t_data;
 
 int		read_map(int fd, t_data	*data);
