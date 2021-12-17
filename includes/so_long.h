@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/17 03:22:21 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/17 03:36:49 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	fill_map(int fd, t_data *data);
 void	display_map(t_data *data);
 void	load_images(t_data *data);
 void	set_images(t_data *data);
+int 	move(int key, t_data *data);
 //int	ft_strlen(char *s);
 
 #endif
