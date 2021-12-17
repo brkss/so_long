@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/16 14:39:08 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/17 03:14:49 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int main(int argc, char **argv)
 {
 	int		fd;
 	t_data	*data;
-	void	*mlx;
-	void	*mlx_win;
 	if(argc >= 2)
 	{
 		fd = open(argv[1], O_RDONLY);
@@ -37,10 +35,12 @@ int main(int argc, char **argv)
 		}
 		fill_map(fd, data);
 		display_map(data);
-		mlx = mlx_init();
-		mlx_win = mlx_new_window(mlx, data->map->w * 64, data->map->h * 64, "So Long !!!");
-	
-		mlx_loop(mlx);
+		data->mlx = mlx_init();
+		data->mlx_win = mlx_new_window(data->mlx, data->map->w  * 64, data->map->h  * 64, "So Long !!!");
+		
+		load_images(data);
+		set_images(data);
+		mlx_loop(data->mlx);
 	}
 	else
 	{

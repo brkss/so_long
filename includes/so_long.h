@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/16 14:30:53 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/17 03:22:21 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <fcntl.h>
 
 typedef struct img_s {
-	char	*path;
+	void	*image;
 	int		w;
 	int		h;
 } t_img;
@@ -36,11 +36,20 @@ typedef struct map_s {
 typedef struct data_s {
 	t_map	*map;
 	int		scale;
+	t_img	wall;
+	t_img	space;
+	t_img	collec;
+	t_img	exit;
+	t_img	player;
+	void	*mlx;
+	void	*mlx_win;	
 } t_data;
 
 int		read_map(int fd, t_data	*data);
 void	fill_map(int fd, t_data *data);
 void	display_map(t_data *data);
+void	load_images(t_data *data);
+void	set_images(t_data *data);
 //int	ft_strlen(char *s);
 
 #endif
