@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/17 03:36:49 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/12/17 20:19:27 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,22 @@ typedef struct map_s {
 	int	w;
 } t_map;
 
+typedef struct player_s {
+	t_img	ply_img;
+	int		x;
+	int		y;
+} t_player;
 
 typedef struct data_s {
-	t_map	*map;
-	int		scale;
-	t_img	wall;
-	t_img	space;
-	t_img	collec;
-	t_img	exit;
-	t_img	player;
-	void	*mlx;
-	void	*mlx_win;	
+	t_map		*map;
+	int			scale;
+	t_img		wall;
+	t_img		space;
+	t_img		collec;
+	t_img		exit;
+	t_player	player;
+	void		*mlx;
+	void		*mlx_win;	
 } t_data;
 
 int		read_map(int fd, t_data	*data);
