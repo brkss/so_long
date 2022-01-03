@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:23:57 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/17 20:20:29 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/03 21:13:44 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,17 @@ void	set_images(t_data *data)
 			else if(data->map->map[i][j] == 'E')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit.image, j * 64, i * 64);
 			else if(data->map->map[i][j] == 'P')
+			{/*
+				
+				if(data->player.x == 0 && data->player.y == 0)
+				{
+					data->player.x = j;
+					data->player.y = i;
+				}
+				printf("player x and y : %d, %d \n", data->player.x, data->player.y);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->player.ply_img.image, data->player.x * 64, data->player.y * 64);*/
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->player.ply_img.image, j * 64, i * 64);
+			}
 			j++;
 		}
 		i++;

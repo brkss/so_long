@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2021/12/17 20:19:27 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/03 21:14:54 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ void	load_images(t_data *data);
 void	set_images(t_data *data);
 int 	move(int key, t_data *data);
 //int	ft_strlen(char *s);
+
+void	location(t_data *data, int x, int j);
 
 #endif
