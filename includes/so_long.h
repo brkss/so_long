@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/03 21:14:54 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/04 20:24:49 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ typedef struct data_s {
 	t_player	player;
 	void		*mlx;
 	void		*mlx_win;	
+
+	int			coins_count;
+	int			moves;
+	int			top_exit;
 } t_data;
 
 int		read_map(int fd, t_data	*data);
@@ -58,6 +62,6 @@ void	set_images(t_data *data);
 int 	move(int key, t_data *data);
 //int	ft_strlen(char *s);
 
-void	location(t_data *data, int x, int j);
+void	location(t_data *data, int x, int y);
 
 #endif
