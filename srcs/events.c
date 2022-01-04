@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/04 20:45:38 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/04 22:24:43 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ void	location(t_data *data, int x, int y)
 			{
 				if(data->map->map[i + y][j + x] != '1')
 				{
-					if(data->top_exit == 1)
-						data->top_exit = 0;
 					if(data->map->map[i + y][j + x] == 'E'){
 						if(data->coins_total > data->coins_count)
 							data->top_exit = 1;
@@ -71,8 +69,15 @@ void	location(t_data *data, int x, int y)
 					}
 					if(data->map->map[i + y][j + x] == 'C')
 						data->coins_count += 1;
+					if(data->top_exit == 1 && data->map->map[i + y][j + x] != 'E')
+					{
+						data->top_exit = 0;
+						data->map->map[i][j] = 'E';
+					}
+					else
+						data->map->map[i][j] = '0';
 					data->map->map[i + y][j + x] = 'P';
-					data->map->map[i][j] = '0';
+					
 					return;
 				}				
 			}
