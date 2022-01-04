@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:23:57 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/04 20:31:33 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/04 22:05:11 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	set_images(t_data *data)
 			else if(data->map->map[i][j] == '0')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->space.image, j * 64, i * 64);
 			else if(data->map->map[i][j] == 'C'){
-				data->coins_count += 1;
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->collec.image, j * 64, i * 64);
 			}
 			else if(data->map->map[i][j] == 'E')
