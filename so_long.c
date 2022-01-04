@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/04 20:27:40 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/04 20:38:34 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	init_data(t_data *data)
 {
 	data->scale = 64;
 	data->coins_count = 0;
-   	data->moves = 0;
+   	data->coins_total = 0;
+	data->moves = 0;
 	data->top_exit = 0;	
 }
 

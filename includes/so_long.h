@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/04 20:24:49 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/01/04 20:38:16 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct data_s {
 	void		*mlx_win;	
 
 	int			coins_count;
+	int			coins_total;
 	int			moves;
 	int			top_exit;
 } t_data;
