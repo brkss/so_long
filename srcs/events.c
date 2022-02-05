@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/04 22:24:43 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/05 17:28:08 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,21 @@ int	move(int key, t_data *data)
 	{
 		//printf("move up \n");
 		location(data, 0, -1);
-		set_images(data);
 	}
 	else if(key == 0)
 	{
 		//printf("move left \n");
 		location(data, -1, 0);
-		set_images(data);
 	}
 	else if(key == 2)
 	{
 		//printf("move right \n");
 		location(data, 1, 0);
-		set_images(data);
 	}
 	else if(key == 1)
 	{
 		//printf("move down \n");
 		location(data, 0, 1);
-		set_images(data);
 	}
 
 	return (1);
@@ -48,7 +44,9 @@ void	location(t_data *data, int x, int y)
 {
 	int		i;
 	int		j;
+	int		finish;
 
+	finish = 0;
 	i = 0;
 	data->moves += 1;
 	printf("movement : %d \n", data->moves);
@@ -64,7 +62,8 @@ void	location(t_data *data, int x, int y)
 					if(data->map->map[i + y][j + x] == 'E'){
 						if(data->coins_total > data->coins_count)
 							data->top_exit = 1;
-						//else
+						else
+							finish = 1;
 							// here goes map exit since the player collected all coins !
 					}
 					if(data->map->map[i + y][j + x] == 'C')
@@ -78,6 +77,10 @@ void	location(t_data *data, int x, int y)
 						data->map->map[i][j] = '0';
 					data->map->map[i + y][j + x] = 'P';
 					
+					if(finish)
+						exit_map(data);
+					else
+						set_images(data);
 					return;
 				}				
 			}

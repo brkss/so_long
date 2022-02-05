@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/04 20:38:16 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/05 17:21:29 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int 	move(int key, t_data *data);
 //int	ft_strlen(char *s);
 
 void	location(t_data *data, int x, int y);
+
+void	exit_map(t_data *data);
 
 #endif

@@ -3,7 +3,7 @@
 
 NAME = so_long
 
-SOURCES = so_long.c srcs/events.c  srcs/map.c srcs/images.c srcs/gnl/get_next_line.c srcs/gnl/get_next_line_utils.c
+SOURCES = so_long.c srcs/exit.c srcs/events.c  srcs/map.c srcs/images.c srcs/gnl/get_next_line.c srcs/gnl/get_next_line_utils.c
 
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
