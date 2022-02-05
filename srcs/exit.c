@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 17:15:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/05 18:18:30 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:22:44 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	exit_map(t_data *data)
 	
 	// write score 
 	mlx_string_put(data->mlx, data->mlx_win, (data->map->w * 64) / 2, (data->map->h * 64) / 2, 0, "You scored 100 !");
-	mlx_string_put(data->mlx, data->mlx_win, (data->map->w * 64) / 2, (data->map->h * 64) / 2 + 20, 0, "Exit in 30 seconds");
+	mlx_string_put(data->mlx, data->mlx_win, (data->map->w * 64) / 2, (data->map->h * 64) / 2 + 40, 0, "PRESS ESC TO EXIT !");
 
 	// free unused pointers !
 }
