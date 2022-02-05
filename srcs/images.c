@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:23:57 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/04 15:26:29 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/05 21:07:51 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	set_images(t_data *data)
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit.image, j * 64, i * 64);
 			else if(data->map->map[i][j] == 'P')
 			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->space.image, j * 64, i * 64);
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->player.ply_img.image, j * 64, i * 64);
 			}
 			j++;
