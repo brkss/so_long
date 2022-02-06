@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 19:38:03 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:33:57 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_data(t_data *data)
 	data->top_exit = 0;	
 	data->currentFrame = 0;
 	data->player.frame = 1;
+	data->finished = 0;
 }
 
 int	count_coins(t_map *map)

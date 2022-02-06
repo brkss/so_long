@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 19:15:27 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:33:24 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct data_s {
 	int			moves;
 	int			top_exit;
 	int			currentFrame;
+	int			finished;
 } t_data;
 
 int		read_map(int fd, t_data	*data);
