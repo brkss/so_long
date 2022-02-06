@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 17:15:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 17:13:15 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 23:00:15 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	exit_map(t_data *data)
 	put_string(data, (data->map->w * 64) / 2, (data->map->h * 64) / 2, 0, joined);
 	put_string(data, (data->map->w * 64) / 2, (data->map->h * 64) / 2 + 40, 0, "PRESS ESC TO EXIT !");
 
-	// free unused pointers !
+	// free unused memory !
+	free(joined);
 }
 
 char	*gen_moves_sentense(int moves)
