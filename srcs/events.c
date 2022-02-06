@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/05 17:28:08 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 02:18:00 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int	move(int key, t_data *data)
 	{
 		//printf("move down \n");
 		location(data, 0, 1);
+	}
+	else {
+		printf("KEY -> %d \n", key);
 	}
 
 	return (1);

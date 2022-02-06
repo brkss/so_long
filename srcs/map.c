@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/01/03 22:13:14 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 16:22:22 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ static int	check_map_line(char *line, int is_hor)
 	{
 		while(line[i])
 		{
-			if(line[i] != '1' && line[i] != '\n')
+			if(line[i] != '1')
 				return (0);
 			i++;
 		}
 		return (1);
 	}
-	if(line[0] != '1' || line[len - 2] != '1')
+	if(line[0] != '1' || line[len - 1] != '1')
 		return (0);
 	return (1);
 }
