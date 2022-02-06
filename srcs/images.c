@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:23:57 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 16:59:42 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 17:38:12 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	set_images(t_data *data)
 	int	j;
 
 	i = 0;
+	mlx_clear_window (data->mlx, data->mlx_win);
+	put_string(data, 0, 3, 255, gen_moves_sentense(data->moves));
 	while(i < data->map->h)
 	{
 		j = 0;
