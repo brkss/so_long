@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:23:57 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/05 21:07:51 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 16:59:42 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ void	set_images(t_data *data)
 		while(j < data->map->w)
 		{
 			if(data->map->map[i][j] == '1')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall.image, j * 64, i * 64);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall.image, j * 64, i * 64 + 30);
 			else if(data->map->map[i][j] == '0')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->space.image, j * 64, i * 64);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->space.image, j * 64, i * 64 + 30);
 			else if(data->map->map[i][j] == 'C'){
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->collec.image, j * 64, i * 64);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->collec.image, j * 64, i * 64 + 30);
 			}
 			else if(data->map->map[i][j] == 'E')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit.image, j * 64, i * 64);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit.image, j * 64, i * 64 + 30);
 			else if(data->map->map[i][j] == 'P')
 			{
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->space.image, j * 64, i * 64);
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->player.ply_img.image, j * 64, i * 64);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->space.image, j * 64, i * 64 + 30);
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->player.ply_img.image, j * 64, i * 64 + 30);
 			}
 			j++;
 		}

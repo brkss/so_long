@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 17:15:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 16:36:59 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 17:13:15 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	exit_map(t_data *data)
 	printf("YOU FINISHED 1");
 	int	x;
 	int	y;
-	char	*score;
 	char	*joined;
 	
 	y = 0;
@@ -32,12 +31,25 @@ void	exit_map(t_data *data)
 		}
 		y++;
 	}
-	score = ft_itoa(data->moves);
-	joined = join_score("MOVES : ", score);
-
-	// write score 
-	mlx_string_put(data->mlx, data->mlx_win, (data->map->w * 64) / 2, (data->map->h * 64) / 2, 0, joined);
-	mlx_string_put(data->mlx, data->mlx_win, (data->map->w * 64) / 2, (data->map->h * 64) / 2 + 40, 0, "PRESS ESC TO EXIT !");
+	joined = gen_moves_sentense(data->moves);
+	put_string(data, (data->map->w * 64) / 2, (data->map->h * 64) / 2, 0, joined);
+	put_string(data, (data->map->w * 64) / 2, (data->map->h * 64) / 2 + 40, 0, "PRESS ESC TO EXIT !");
 
 	// free unused pointers !
+}
+
+char	*gen_moves_sentense(int moves)
+{
+	char	*score;
+	char	*joined;
+
+	score = ft_itoa(moves);
+	joined = join_score("MOVES : ", score);
+	free(score);
+	return joined;
+}
+
+void	put_string(t_data *data, int x, int y, int color, char *s)
+{
+	mlx_string_put(data->mlx, data->mlx_win, x, y, color, s);
 }

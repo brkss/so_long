@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 16:33:47 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 17:12:47 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ void	location(t_data *data, int x, int y);
 void	exit_map(t_data *data);
 char	*ft_itoa(int n);
 char	*join_score(char const *s1, char const *s2);
+
+void	put_string(t_data *data, int x, int y, int color, char *s);
+char	*gen_moves_sentense(int	moves);
 
 #endif
