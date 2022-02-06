@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 17:12:47 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/06 19:15:27 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ typedef struct map_s {
 } t_map;
 
 typedef struct player_s {
-	t_img	ply_img;
+	t_img	ply_img[5];
 	int		x;
 	int		y;
+	int		frame;
 } t_player;
 
 typedef struct data_s {
@@ -53,12 +54,14 @@ typedef struct data_s {
 	int			coins_total;
 	int			moves;
 	int			top_exit;
+	int			currentFrame;
 } t_data;
 
 int		read_map(int fd, t_data	*data);
 void	fill_map(int fd, t_data *data);
 void	display_map(t_data *data);
 void	load_images(t_data *data);
+void	load_player_images(t_data *data);
 void	set_images(t_data *data);
 int 	move(int key, t_data *data);
 //int	ft_strlen(char *s);
@@ -71,5 +74,7 @@ char	*join_score(char const *s1, char const *s2);
 
 void	put_string(t_data *data, int x, int y, int color, char *s);
 char	*gen_moves_sentense(int	moves);
+
+int		animate(t_data *data);
 
 #endif

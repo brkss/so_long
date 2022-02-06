@@ -1,4 +1,7 @@
 
 
+don't forget to check map for errors:
+	-> letters diffrent than 1 0 E C P
+	-> letters doesn't exist 1 0 E C P 
 
 future me if you cant find leaks check score sentense generator ;) 
