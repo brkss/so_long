@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 22:39:32 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/07 18:44:40 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	move(int key, t_data *data)
 {
 	(void)data;
-	
+
+
 	if(key == 13)
 	{
 		//printf("move up \n");
@@ -36,8 +37,8 @@ int	move(int key, t_data *data)
 		//printf("move down \n");
 		location(data, 0, 1);
 	}
-	else {
-		printf("KEY -> %d \n", key);
+	else if(key == 53) {
+		mlx_destroy_window(data->mlx, data->mlx_win);
 	}
 
 	return (1);
@@ -70,7 +71,6 @@ void	location(t_data *data, int x, int y)
 							finish = 1;
 							data->finished = 1;
 						}
-							// here goes map exit since the player collected all coins !
 					}
 					if(data->map->map[i + y][j + x] == 'C')
 						data->coins_count += 1;
