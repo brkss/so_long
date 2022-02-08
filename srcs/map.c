@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/07 18:47:36 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/07 23:43:37 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	read_map(int fd, t_data *data)
 	char	*tmp;
 	char	*line;
 
-	(void)data;
 	line = NULL;
 	i = 0;
 	tmp = NULL;
@@ -60,7 +59,7 @@ int	read_map(int fd, t_data *data)
 			initial_line_len = ft_strlen(line);
 			if(!check_map_line(line, 1))
 			{
-				printf("Error\nInvalid Map ! \n");
+				put_str("Error\nInvalid Map ! \n");
 				exit(1);
 			}
 		}
@@ -102,7 +101,6 @@ void	fill_map(int fd, t_data *data)
 
 void	display_map(t_data *data)
 {
-
 	int	i;
 	int	j;
 
