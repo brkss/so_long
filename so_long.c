@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/08 17:41:11 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:15:52 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int main(int argc, char **argv)
 	t_data	*data;
 	if(argc >= 2)
 	{
-		
 		if(!check_file_extension(argv[1]))
 		{
+			put_str("this stopped the program ! \n");
 			put_str("Error\nInvalid File !\n");
 			exit(0);
 		}
@@ -70,11 +70,6 @@ int main(int argc, char **argv)
 		init_data(data);
 		read_map(fd, data);
 		fd = open(argv[1], O_RDONLY);
-		if(data->map)
-		{
-			printf("map h => %d \n", data->map->h);
-			printf("map w => %d \n", data->map->w);
-		}
 		fill_map(fd, data);
 		display_map(data);
 		data->mlx = mlx_init();

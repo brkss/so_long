@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/07 18:44:40 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:21:16 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	move(int key, t_data *data)
 	else if(key == 53) {
 		mlx_destroy_window(data->mlx, data->mlx_win);
 	}
-
 	return (1);
 }
 

@@ -6,32 +6,40 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/07 23:43:37 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:31:17 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+static int	check_line_letters(char *line)
+{
+	while(*line)
+	{
+		if(*line != '0' && *line != '1' && *line != 'E' && *line != 'P' && *line != 'C')
+			return (0);
+		line++;
+	}
+	return (1);
+}
+
 static int	check_map_line(char *line, int is_hor)
 {
 	int	len;
-	int	i;
 
-	if(!line)
+	if(!line || !check_line_letters(line))
 		return (0);
 	len = ft_strlen(line);
-	i = 0;
 	if(is_hor)
 	{
-		while(line[i])
+		while(*line)
 		{
-			if(line[i] != '1')
+			if(*line != '1')
 				return (0);
-			i++;
+			line++;
 		}
-		return (1);
 	}
-	if(line[0] != '1' || line[len - 1] != '1')
+	else if(line[0] != '1' || line[len - 1] != '1')
 		return (0);
 	return (1);
 }
