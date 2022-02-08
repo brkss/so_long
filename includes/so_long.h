@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 22:33:24 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 16:52:28 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ void	put_string(t_data *data, int x, int y, int color, char *s);
 char	*gen_moves_sentense(int	moves);
 
 int		animate(t_data *data);
+void	put_str(char *s);
+int		check_file_extension(char *file);
 
 #endif

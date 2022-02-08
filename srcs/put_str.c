@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   put_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 21:09:46 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/08 17:46:41 by bberkass         ###   ########.fr       */
+/*   Created: 2022/02/07 20:50:21 by bberkass          #+#    #+#             */
+/*   Updated: 2022/02/07 20:51:44 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/so_long.h"
 
-int	check_file_extension(char *file)
+void	put_str(char *s)
 {
-	int	len;
-	int	i;
-
-	if(!file)
-		return(0);
-	len = ft_strlen(file);
-	i = len - 1;
-	while(i > 0)
+	if(!s)
+		return;
+	while(*s)
 	{
-		if(file[i] == '.' && i + 3 == len - 1)
-		{
-			if(file[i + 1] == 'b' && file[i + 2] == 'e' && file[i + 3] == 'r' )
-				return (1);
-			return (0);
-		}
-		i--;
+		write(1, s, 1);
+		s++;
 	}
-	return (0);
 }

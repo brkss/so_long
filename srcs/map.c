@@ -6,32 +6,59 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/07 18:47:36 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 20:01:05 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+static int	valid_line_letters(char *line, int finish)
+{
+	static int	checked[] = {0, 0, 0};
+	
+	while(*line && !finish)
+	{
+		if(*line == 'P')
+			checked[0] += 1 ;
+		else if (*line == 'E')
+			checked[1] += 1 ;
+		else if (*line == 'C')
+			checked[2] += 1 ;
+		line++;
+	}
+	if(finish && (checked[0] != 1 || checked[1] == 0 || checked[2] == 0))
+		return (0);
+	return (1);
+}
+
+static int	check_line_letters(char *line)
+{
+	while(*line)
+	{
+		if(*line != '0' && *line != '1' && *line != 'E' && *line != 'P' && *line != 'C')
+			return (0);
+		line++;
+	}
+	return (1);
+}
+
 static int	check_map_line(char *line, int is_hor)
 {
 	int	len;
-	int	i;
 
-	if(!line)
+	if(!line || !check_line_letters(line))
 		return (0);
 	len = ft_strlen(line);
-	i = 0;
 	if(is_hor)
 	{
-		while(line[i])
+		while(*line)
 		{
-			if(line[i] != '1')
+			if(*line != '1')
 				return (0);
-			i++;
+			line++;
 		}
-		return (1);
 	}
-	if(line[0] != '1' || line[len - 1] != '1')
+	else if(line[0] != '1' || line[len - 1] != '1')
 		return (0);
 	return (1);
 }
@@ -43,7 +70,6 @@ int	read_map(int fd, t_data *data)
 	char	*tmp;
 	char	*line;
 
-	(void)data;
 	line = NULL;
 	i = 0;
 	tmp = NULL;
@@ -55,12 +81,13 @@ int	read_map(int fd, t_data *data)
 		if(line)
 			free(line);
 		line = tmp;
+		valid_line_letters(line, 0);
 		if (i == 0)
 		{
 			initial_line_len = ft_strlen(line);
 			if(!check_map_line(line, 1))
 			{
-				printf("Error\nInvalid Map ! \n");
+				put_str("Error\nInvalid Map ! \n");
 				exit(1);
 			}
 		}
@@ -71,7 +98,7 @@ int	read_map(int fd, t_data *data)
 		}
 		i++;
 	}
-	if(!check_map_line(line, 1) || initial_line_len != ft_strlen(line))
+	if(!check_map_line(line, 1) || initial_line_len != ft_strlen(line) || !valid_line_letters(line, 1))
 	{
 		free(line);
 		printf("Error\nInvalid Map ! \n");
@@ -102,7 +129,6 @@ void	fill_map(int fd, t_data *data)
 
 void	display_map(t_data *data)
 {
-
 	int	i;
 	int	j;
 
