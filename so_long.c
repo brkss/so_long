@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/06 22:33:57 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 17:41:11 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,17 @@ int main(int argc, char **argv)
 	t_data	*data;
 	if(argc >= 2)
 	{
+		
+		if(!check_file_extension(argv[1]))
+		{
+			put_str("Error\nInvalid File !\n");
+			exit(0);
+		}
+		
 		fd = open(argv[1], O_RDONLY);
 		if(fd < 3)
 		{
-			printf("Error\ninvalid file ! \n");
+			put_str("Error\ninvalid file ! \n");
 			exit(0);
 		}	
 		data = (t_data	*)malloc(sizeof(t_data));
