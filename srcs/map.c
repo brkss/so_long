@@ -6,11 +6,30 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/08 19:31:17 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 20:01:05 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+static int	valid_line_letters(char *line, int finish)
+{
+	static int	checked[] = {0, 0, 0};
+	
+	while(*line && !finish)
+	{
+		if(*line == 'P')
+			checked[0] += 1 ;
+		else if (*line == 'E')
+			checked[1] += 1 ;
+		else if (*line == 'C')
+			checked[2] += 1 ;
+		line++;
+	}
+	if(finish && (checked[0] != 1 || checked[1] == 0 || checked[2] == 0))
+		return (0);
+	return (1);
+}
 
 static int	check_line_letters(char *line)
 {
@@ -62,6 +81,7 @@ int	read_map(int fd, t_data *data)
 		if(line)
 			free(line);
 		line = tmp;
+		valid_line_letters(line, 0);
 		if (i == 0)
 		{
 			initial_line_len = ft_strlen(line);
@@ -78,7 +98,7 @@ int	read_map(int fd, t_data *data)
 		}
 		i++;
 	}
-	if(!check_map_line(line, 1) || initial_line_len != ft_strlen(line))
+	if(!check_map_line(line, 1) || initial_line_len != ft_strlen(line) || !valid_line_letters(line, 1))
 	{
 		free(line);
 		printf("Error\nInvalid Map ! \n");
