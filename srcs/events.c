@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/09 21:04:01 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/09 21:34:42 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,49 +29,55 @@ int	move(int key, t_data *data)
 
 void	move_player(t_data *data, int i, int j, int *cords)
 {
-	if (data->map->map[i + cords[1]][j + cords[0]] != '1')
+	if (data->map->map[i + c[1]][j + c[0]] != '1')
 	{
-		if (data->map->map[i + cords[1]][j + cords[0]] == 'E'){
+		if (data->map->map[i + c[1]][j + c[0]] == 'E')
+		{
 			if (data->coins_total > data->coins_count)
 				data->top_exit = 1;
 			else
 				data->finished = 1;
 		}
-		if (data->map->map[i + cords[1]][j + cords[0]] == 'C')
+		if (data->map->map[i + c[1]][j + c[0]] == 'C')
 			data->coins_count += 1;
-		if (data->top_exit == 1 && data->map->map[i + cords[1]][j + cords[0]] != 'E')
+		if (data->top_exit == 1 && data->map->map[i + c[1]][j + c[0]] != 'E')
 		{
 			data->top_exit = 0;
 			data->map->map[i][j] = 'E';
 		}
 		else
 			data->map->map[i][j] = '0';
-		data->map->map[i + cords[1]][j + cords[0]] = 'P';
+		data->map->map[i + c[1]][j + c[0]] = 'P';
 		if (data->finished)
 			exit_map(data);
 		else
 			set_images(data);
-		free(cords);
-		return;
+		return ;
 	}
+}
+
+void	handle_moves(t_data *data)
+{
+	char	*moves;
+
+	data->moves += 1;
+	moves = gen_moves_sentense(data->moves);
+	put_str(moves);
+	write(1, "\n", 1);
+	free(moves);
 }
 
 void	location(t_data *data, int x, int y)
 {
 	int		i;
 	int		j;
-	char	*moves;
 	int		*cords;
 
 	cords = (int *)malloc(sizeof(int) * 2);
 	cords[0] = x;
 	cords[1] = y;
 	i = 0;
-	data->moves += 1;
-	moves = gen_moves_sentense(data->moves);
-	put_str(moves);
-	write(1, "\n", 1);
-	free(moves);
+	handle_moves(data);
 	while (i < data->map->h)
 	{
 		j = 0;
@@ -80,7 +86,8 @@ void	location(t_data *data, int x, int y)
 			if (data->map->map[i][j] == 'P')
 			{
 				move_player(data, i, j, cords);
-				return;	
+				free(cords);
+				return ;
 			}
 			j++;
 		}
