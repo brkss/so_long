@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/08 20:01:05 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/08 21:20:37 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	valid_line_letters(char *line, int finish)
 {
 	static int	checked[] = {0, 0, 0};
-	
+
 	while(*line && !finish)
 	{
 		if(*line == 'P')
