@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/09 21:34:42 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:19:18 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	move(int key, t_data *data)
 	return (1);
 }
 
-void	move_player(t_data *data, int i, int j, int *cords)
+void	move_player(t_data *data, int i, int j, int *c)
 {
 	if (data->map->map[i + c[1]][j + c[0]] != '1')
 	{
