@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 20:50:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/07 20:51:44 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/11 23:20:25 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	put_str(char *s)
 {
-	if(!s)
-		return;
-	while(*s)
+	if (!s)
+		return ;
+	while (*s)
 	{
 		write(1, s, 1);
 		s++;

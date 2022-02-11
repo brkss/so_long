@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 20:23:57 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/09 18:36:40 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/11 23:18:53 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	set_images(t_data *data)
 	i = 0;
 	moves_sentense = gen_moves_sentense(data->moves);
 	mlx_clear_window (data->mlx, data->mlx_win);
-	put_string(data, 0, 3, 255, moves_sentense);
+	mlx_string_put(data->mlx, data->mlx_win, 0, 3, 255, moves_sentense);
 	free(moves_sentense);
 	while (i < data->map->h)
 	{
