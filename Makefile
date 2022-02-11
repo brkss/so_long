@@ -1,7 +1,7 @@
 
 NAME = so_long
 
-SOURCES = so_long.c srcs/finish.c srcs/events.c  srcs/map.c srcs/images.c srcs/gnl/get_next_line.c srcs/gnl/get_next_line_utils.c srcs/join.c srcs/itoa.c srcs/animation.c srcs/utils.c srcs/put_str.c
+SOURCES = so_long.c srcs/finish.c srcs/events.c  srcs/map.c srcs/images.c srcs/gnl/get_next_line.c srcs/gnl/get_next_line_utils.c srcs/join.c srcs/itoa.c srcs/animation.c srcs/utils.c srcs/put_str.c srcs/error.c
 
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
