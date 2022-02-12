@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/11 23:49:33 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/12 02:46:12 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	read_map(int fd, t_data *data)
 	char	*tmp;
 	char	*line;
 
-	line = NULL;
 	i = 0;
+	line = NULL;
 	tmp = NULL;
 	while (tmp || i == 0)
 	{
