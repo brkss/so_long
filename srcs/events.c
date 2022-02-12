@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/10 15:19:18 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:40:22 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	move(int key, t_data *data)
 {
-	if (key == 13)
+	if (key == 13 && !data->finished)
 		location(data, 0, -1);
-	else if (key == 0)
+	else if (key == 0 && !data->finished)
 		location(data, -1, 0);
-	else if (key == 2)
+	else if (key == 2 && !data->finished)
 		location(data, 1, 0);
-	else if (key == 1)
+	else if (key == 1 && !data->finished)
 		location(data, 0, 1);
-	else if (key == 53)
+	else if (key == 53 && !data->finished)
 		mlx_destroy_window(data->mlx, data->mlx_win);
 	return (1);
 }
