@@ -16,17 +16,17 @@ int	animate(t_data *data)
 {
 	if (!data->finished)
 	{
-		if (data->currentFrame == 60)
+		if (data->current_frame == 60)
 		{
-			data->currentFrame = 0;
+			data->current_frame = 0;
 		}
-		if (data->currentFrame % 10 == 0)
+		if (data->current_frame % 10 == 0)
 		{
 			data->player.frame += 1;
 			if (data->player.frame > 4)
 				data->player.frame = 0;
 		}
-		data->currentFrame += 1;
+		data->current_frame += 1;
 		set_images(data);
 	}	
 	return (1);

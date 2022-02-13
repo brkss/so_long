@@ -19,7 +19,7 @@ void	init_data(t_data *data)
 	data->coins_total = 0;
 	data->moves = 0;
 	data->top_exit = 0;
-	data->currentFrame = 0;
+	data->current_frame = 0;
 	data->player.frame = 1;
 	data->finished = 0;
 }
