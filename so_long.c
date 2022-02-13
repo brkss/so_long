@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/13 18:16:27 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:20:31 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,10 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		if (!check_file_extension(argv[1]))
-		{
-			put_str("Error\nInvalid File !\n");
-			exit(0);
-		}
+			display_error_exit("Error\nInvalid File !\n");
 		fd = open(argv[1], O_RDONLY);
 		if (fd < 3)
-		{
-			put_str("Error\ninvalid file ! \n");
-			exit(0);
-		}	
+			display_error_exit("Error\ninvalid file ! \n");
 		data = (t_data *)malloc(sizeof(t_data));
 		init_data(data);
 		read_map(fd, data);
@@ -88,10 +82,7 @@ int	main(int argc, char **argv)
 		mlx_loop(data->mlx);
 	}
 	else
-	{
-		put_str("Error\nMissing Map ! \n");
-		exit(0);
-	}
+		display_error_exit("Error\nMissing Map ! \n");
 	system("leaks so_long");
 	return (0);
 }
