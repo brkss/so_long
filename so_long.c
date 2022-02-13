@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 20:22:21 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/13 18:12:58 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/13 18:16:27 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	load(t_data *data, char *map)
 	fd = open(map, O_RDONLY);
 	fill_map(fd, data);
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, data->map->w * 64, data->map->h * 64, "sl");
-	data->coins_total = count_coins(data->map);	
+	data->mlx_win = mlx_new_window(data->mlx,
+			data->map->w * 64, data->map->h * 64, "sl");
+	data->coins_total = count_coins(data->map);
 	load_images(data);
 	load_player_images(data);
 	set_images(data);
