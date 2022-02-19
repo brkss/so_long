@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 03:35:06 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/15 00:26:36 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:28:29 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,22 @@ int	move(int key, t_data *data)
 	return (1);
 }
 
+void	handle_moves(t_data *data)
+{
+	char	*moves;
+
+	data->moves += 1;
+	moves = gen_moves_sentense(data->moves);
+	put_str(moves);
+	write(1, "\n", 1);
+	free(moves);
+}
+
 void	move_player(t_data *data, int i, int j, int *c)
 {
 	if (data->map->map[i + c[1]][j + c[0]] != '1')
 	{
+		handle_moves(data);
 		if (data->map->map[i + c[1]][j + c[0]] == 'E')
 		{
 			if (data->coins_total > data->coins_count)
@@ -55,19 +67,7 @@ void	move_player(t_data *data, int i, int j, int *c)
 			exit_map(data);
 		else
 			set_images(data);
-		return ;
 	}
-}
-
-void	handle_moves(t_data *data)
-{
-	char	*moves;
-
-	data->moves += 1;
-	moves = gen_moves_sentense(data->moves);
-	put_str(moves);
-	write(1, "\n", 1);
-	free(moves);
 }
 
 void	location(t_data *data, int x, int y)
@@ -80,7 +80,6 @@ void	location(t_data *data, int x, int y)
 	cords[0] = x;
 	cords[1] = y;
 	i = 0;
-	handle_moves(data);
 	while (i < data->map->h)
 	{
 		j = 0;

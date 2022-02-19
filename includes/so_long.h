@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/13 18:43:24 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:22:03 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	put_str(char *s);
 int		check_file_extension(char *file);
 
 void	fill_blue(t_data *data);
-void	map_error(void);
+void	map_error(char *tmp);
 void	display_error_exit(char *err);
 
 #endif
