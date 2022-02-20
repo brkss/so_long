@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/19 19:26:22 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:48:41 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static int	check_map_line(char *line, int is_hor)
 		return (0);
 	return (1);
 }
-/*
-int	read_map(int fd, t_data *data)
+
+void	read_map(int fd, t_data *data)
 {
 	int		init_len;
 	char	*tmp;
@@ -79,7 +79,7 @@ int	read_map(int fd, t_data *data)
 		init_len = ft_strlen(tmp);
 	else
 		map_error(tmp);
-	while ((tmp && init_len) > 0 || i++)
+	while (tmp && init_len > 0 && ++i)
 	{
 		if (line)
 			free(line);
@@ -96,10 +96,9 @@ int	read_map(int fd, t_data *data)
 	data->map->h = i;
 	data->map->w = init_len;
 	free(line);
-	return (1);
 }
-*/
 
+/*
 int	read_map(int fd, t_data *data)
 {
 	int		i;
@@ -141,6 +140,7 @@ int	read_map(int fd, t_data *data)
 	free(line);
 	return (1);
 }
+*/
 
 void	fill_map(int fd, t_data *data)
 {

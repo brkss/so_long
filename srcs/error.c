@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 23:46:11 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/19 19:22:14 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/19 19:31:19 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	map_error(char *line)
 {
-	if(line)
+	if (line)
 		free(line);
 	put_str("Error\nInvalid Map ! \n");
 	exit(1);

@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 21:36:48 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/19 19:22:03 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:07:26 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct data_s {
 	int			finished;
 }	t_data;
 
-int		read_map(int fd, t_data	*data);
+void	read_map(int fd, t_data	*data);
 void	fill_map(int fd, t_data *data);
 void	display_map(t_data *data);
 void	load_images(t_data *data);
