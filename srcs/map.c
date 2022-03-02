@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 20:59:55 by bberkass          #+#    #+#             */
-/*   Updated: 2022/02/20 17:48:41 by bberkass         ###   ########.fr       */
+/*   Updated: 2022/03/03 00:25:17 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,53 +48,48 @@ static int	check_map_line(char *line, int is_hor)
 	int	len;
 
 	if (!line || !check_line_letters(line))
-		return (0);
+		map_error(line);
 	len = ft_strlen(line);
 	if (is_hor)
 	{
 		while (*line)
 		{
 			if (*line != '1')
-				return (0);
+				map_error(line);
 			line++;
 		}
 	}
 	else if (line[0] != '1' || line[len - 1] != '1')
-		return (0);
+		map_error(line);
 	return (1);
 }
 
 void	read_map(int fd, t_data *data)
 {
-	int		init_len;
-	char	*tmp;
-	char	*line;
-	int		i;
-	
-	i = 0;
-	init_len = 0;
+	static int	mes[] = {0, 0};
+	char		*tmp;
+	char		*line;
+
 	line = NULL;
 	tmp = get_next_line(fd);
 	if (tmp && check_map_line(tmp, 1))
-		init_len = ft_strlen(tmp);
-	else
-		map_error(tmp);
-	while (tmp && init_len > 0 && ++i)
+		mes[1] = ft_strlen(tmp);
+	while (tmp && mes[1] > 0 && ++mes[0])
 	{
 		if (line)
 			free(line);
 		line = tmp;
 		valid_line_letters(line, 0);
-		if (!check_map_line(line, 0) || init_len != ft_strlen(line))
+		if (!check_map_line(line, 0) || mes[1] != ft_strlen(line))
 			map_error(line);
 		tmp = get_next_line(fd);
 	}
-	if (!check_map_line(line, 1) || init_len != ft_strlen(line)
+	if (!check_map_line(line, 1) || mes[1] != ft_strlen(line)
 		|| !valid_line_letters(line, 1))
 		map_error(line);
 	data->map = (t_map *)malloc(sizeof(t_map));
-	data->map->h = i;
-	data->map->w = init_len;
+	data->map->h = mes[0];
+	data->map->w = mes[1];
 	free(line);
 }
 
