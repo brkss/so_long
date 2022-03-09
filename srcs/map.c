@@ -93,50 +93,6 @@ void	read_map(int fd, t_data *data)
 	free(line);
 }
 
-/*
-int	read_map(int fd, t_data *data)
-{
-	int		i;
-	int		initial_line_len;
-	char	*tmp;
-	char	*line;
-
-	i = 0;
-	line = NULL;
-	tmp = NULL;
-	while (tmp || i == 0)
-	{
-		tmp = get_next_line(fd);
-		if (!tmp)
-			break ;
-		if (line)
-			free(line);
-		line = tmp;
-		valid_line_letters(line, 0);
-		if (i == 0)
-		{
-			initial_line_len = ft_strlen(line);
-			if (!check_map_line(line, 1))
-				map_error(NULL);
-		}
-		if (!check_map_line(line, 0) || initial_line_len != ft_strlen(line))
-			map_error(NULL);
-		i++;
-	}
-	if (!check_map_line(line, 1) || initial_line_len != ft_strlen(line)
-		|| !valid_line_letters(line, 1))
-	{
-		free(line);
-		map_error(NULL);
-	}
-	data->map = (t_map *)malloc(sizeof(t_map));
-	data->map->h = i;
-	data->map->w = initial_line_len;
-	free(line);
-	return (1);
-}
-*/
-
 void	fill_map(int fd, t_data *data)
 {
 	char	*line;

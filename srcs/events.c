@@ -22,11 +22,8 @@ int	move(int key, t_data *data)
 		location(data, 1, 0);
 	else if (key == 1 && !data->finished)
 		location(data, 0, 1);
-	else if (key == 53)
-	{
-		mlx_destroy_window(data->mlx, data->mlx_win);
-		exit(1);
-	}
+	else if (key == 53 || key < 0)
+		exit(0);
 	return (1);
 }
 

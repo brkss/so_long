@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 		load(data, argv[1]);
 		mlx_loop_hook(data->mlx, animate, data);
 		mlx_key_hook(data->mlx_win, move, data);
+		mlx_hook(data->mlx_win, 17, 0, move, data);
 		mlx_loop(data->mlx);
 	}
 	else
